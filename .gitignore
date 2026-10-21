@@ -1,0 +1,5 @@
+build/
+__pycache__/
+*.pyc
+test-asset*.jpg
+_*.compose.yml

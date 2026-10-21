@@ -1,0 +1,154 @@
+# Immich for TOS 7 - Docker application package
+# Compose Spec 3.8+; all images are pinned to Docker Hub tags.
+# The database uses the official pgvector image and Immich's pgvector mode,
+# because TOS only accepts images from Docker Hub.
+
+services:
+  config-init:
+    container_name: le3gold-immich-test-init
+    image: docker.io/busybox:1.37.0
+    restart: unless-stopped
+    user: "1000:1000"
+    security_opt:
+      - no-new-privileges:true
+    volumes:
+      - /Volume1/DockerAppData/le3gold-immich-test/network:/config
+    entrypoint: ["/bin/sh", "-c"]
+    command:
+      - |
+        set -eu
+        printf '127.0.0.1 localhost\n::1 localhost ip6-localhost ip6-loopback\n' > /config/hosts
+        printf 'nameserver 127.0.0.11\noptions ndots:0\n' > /config/resolv.conf
+        if [ ! -s /config/db-password ]; then
+          head -c 64 /dev/urandom | base64 | tr -dc 'A-Za-z0-9' | head -c 40 > /config/db-password
+        fi
+        chmod 0644 /config/hosts /config/resolv.conf
+        chmod 0600 /config/db-password
+        while :; do sleep 3600; done
+    healthcheck:
+      test: ["CMD-SHELL", "test -s /config/hosts && test -s /config/resolv.conf && test -s /config/db-password"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
+
+  immich-server:
+    container_name: le3gold-immich-test-server
+    image: docker.io/altran1502/immich-server:v3.3.4
+    restart: unless-stopped
+    user: "1000:1000"
+    security_opt:
+      - no-new-privileges:true
+    ports:
+      - "12283:2283"
+    volumes:
+      - /Volume1/DockerAppData/le3gold-immich-test/library:/data
+      - /etc/localtime:/etc/localtime:ro
+      - /Volume1/DockerAppData/le3gold-immich-test/network/hosts:/etc/hosts:ro
+      - /Volume1/DockerAppData/le3gold-immich-test/network/resolv.conf:/etc/resolv.conf:ro
+      - /Volume1/DockerAppData/le3gold-immich-test/network/db-password:/run/secrets/db-password:ro
+    environment:
+      - TZ=Asia/Shanghai
+      - DB_HOSTNAME=database
+      - DB_PORT=5432
+      - DB_USERNAME=postgres
+      - DB_PASSWORD_FILE=/run/secrets/db-password
+      - DB_DATABASE_NAME=immich
+      - DB_VECTOR_EXTENSION=pgvector
+      - REDIS_HOSTNAME=redis
+      - REDIS_PORT=6379
+      - IMMICH_MACHINE_LEARNING_URL=http://immich-machine-learning:3003
+    depends_on:
+      config-init:
+        condition: service_healthy
+      immich-machine-learning:
+        condition: service_healthy
+      database:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD-SHELL", "IMMICH_HOST=127.0.0.1 immich-healthcheck"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 180s
+  immich-machine-learning:
+    container_name: le3gold-immich-test-ml
+    image: docker.io/altran1502/immich-machine-learning:v3.3.4
+    restart: unless-stopped
+    user: "1000:1000"
+    security_opt:
+      - no-new-privileges:true
+    volumes:
+      - /Volume1/DockerAppData/le3gold-immich-test/ml-cache:/cache
+      - /Volume1/DockerAppData/le3gold-immich-test/network/hosts:/etc/hosts:ro
+      - /Volume1/DockerAppData/le3gold-immich-test/network/resolv.conf:/etc/resolv.conf:ro
+    environment:
+      - TZ=Asia/Shanghai
+      - HF_ENDPOINT=https://hf-mirror.com
+      - HF_HUB_DISABLE_XET=1
+      - HF_HUB_DISABLE_TELEMETRY=1
+    depends_on:
+      config-init:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD-SHELL", "IMMICH_HOST=127.0.0.1 python3 healthcheck.py"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 120s
+  redis:
+    container_name: le3gold-immich-test-redis
+    image: docker.io/valkey/valkey:9.1.2
+    restart: unless-stopped
+    user: "1000:1000"
+    security_opt:
+      - no-new-privileges:true
+    volumes:
+      - /Volume1/DockerAppData/le3gold-immich-test/redis:/data
+      - /Volume1/DockerAppData/le3gold-immich-test/network/hosts:/etc/hosts:ro
+      - /Volume1/DockerAppData/le3gold-immich-test/network/resolv.conf:/etc/resolv.conf:ro
+    environment:
+      - TZ=Asia/Shanghai
+    depends_on:
+      config-init:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD-SHELL", "redis-cli ping | grep -q PONG"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 30s
+  database:
+    container_name: le3gold-immich-test-postgres
+    image: docker.io/pgvector/pgvector:0.8.7-pg14
+    restart: unless-stopped
+    user: "1000:1000"
+    security_opt:
+      - no-new-privileges:true
+    volumes:
+      - /Volume1/DockerAppData/le3gold-immich-test/postgres:/var/lib/postgresql/data
+      - /Volume1/DockerAppData/le3gold-immich-test/network/hosts:/etc/hosts:ro
+      - /Volume1/DockerAppData/le3gold-immich-test/network/resolv.conf:/etc/resolv.conf:ro
+      - /Volume1/DockerAppData/le3gold-immich-test/network/db-password:/run/secrets/db-password:ro
+    environment:
+      - TZ=Asia/Shanghai
+      - POSTGRES_PASSWORD_FILE=/run/secrets/db-password
+      - POSTGRES_USER=postgres
+      - POSTGRES_DB=immich
+      - POSTGRES_INITDB_ARGS=--data-checksums
+    depends_on:
+      config-init:
+        condition: service_healthy
+    shm_size: 128mb
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d immich"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 60s
+x-app-meta:
+  web:
+    port: 12283
+    protocol: http

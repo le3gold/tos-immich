@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Immich for TOS">
+  <defs>
+    <linearGradient id="bg" x1="64" y1="64" x2="448" y2="448" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#3B82F6"/>
+      <stop offset="1" stop-color="#0F766E"/>
+    </linearGradient>
+    <linearGradient id="photo" x1="152" y1="144" x2="360" y2="368" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FFFFFF"/>
+      <stop offset="1" stop-color="#E6F4FF"/>
+    </linearGradient>
+  </defs>
+  <rect x="24" y="24" width="464" height="464" rx="112" fill="url(#bg)"/>
+  <rect x="116" y="132" width="280" height="232" rx="28" fill="#0B3B5A" opacity="0.28"/>
+  <rect x="104" y="120" width="280" height="232" rx="28" fill="url(#photo)"/>
+  <circle cx="318" cy="192" r="28" fill="#F6C453"/>
+  <path d="M136 312L216 232L268 284L304 248L352 312V324C352 339 340 352 324 352H160C145 352 136 339 136 324V312Z" fill="#0F766E"/>
+  <path d="M136 312L216 232L268 284L304 248L352 312" fill="none" stroke="#0B3B5A" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" opacity="0.25"/>
+  <rect x="164" y="84" width="160" height="36" rx="18" fill="#FFFFFF" opacity="0.72"/>
+  <circle cx="384" cy="128" r="18" fill="#FFFFFF" opacity="0.55"/>
+</svg>

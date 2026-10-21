@@ -1,0 +1,97 @@
+[en-us]
+name = "Immich for TOS"
+auth = "lee3gold"
+descript = "Self-hosted photo and video library with timeline, albums, search and machine learning. This is an unofficial TOS 7 packaging of Immich 3.3.4; photos and metadata stay on your TNAS."
+release_note = "1. First release based on Immich 3.3.4. Includes timeline, albums, upload, thumbnails, search, face detection and OCR."
+important = "Requires DockerEngine. x86_64 only. The web UI uses port 2283. On first machine-learning use, about 1.7 GB of models are downloaded from hf-mirror.com and modelscope.cn. Docker applications cannot be upgraded in place; uninstall and reinstall to change versions. Uninstalling without deleting data keeps the library in /Volume*/DockerAppData/le3gold-immich."
+
+[zh-cn]
+name = "Immich 相册"
+auth = "lee3gold"
+descript = "自托管的照片与视频库，提供时间线、相册、搜索和机器学习能力。本项目是 Immich 3.3.4 的非官方 TOS 7 封装，照片和元数据均保存在你的 TNAS 上。"
+release_note = "1. 首个版本，基于 Immich 3.3.4。包含时间线、相册、上传、缩略图、搜索、人脸识别和 OCR。"
+important = "需要安装 DockerEngine，仅支持 x86_64。网页端口为 2283。首次使用机器学习时，会从 hf-mirror.com 和 modelscope.cn 下载约 1.7 GB 模型。Docker 应用不支持平台内升级，请卸载后重新安装。卸载时选择保留数据，照片库会保留在 /Volume*/DockerAppData/le3gold-immich。"
+
+[zh-hk]
+name = "Immich 相簿"
+auth = "lee3gold"
+descript = "自託管的相片與影片庫，提供時間軸、相簿、搜尋和機器學習功能。本專案是 Immich 3.3.4 的非官方 TOS 7 封裝，相片和中繼資料均保存在你的 TNAS 上。"
+release_note = "1. 首個版本，基於 Immich 3.3.4。包含時間軸、相簿、上傳、縮圖、搜尋、人臉辨識和 OCR。"
+important = "需要安裝 DockerEngine，僅支援 x86_64。網頁連接埠為 2283。首次使用機器學習時，會從 hf-mirror.com 和 modelscope.cn 下載約 1.7 GB 模型。Docker 應用不支援平台內升級，請卸載後重新安裝。卸載時選擇保留資料，相片庫會保留在 /Volume*/DockerAppData/le3gold-immich。"
+
+[fr-fr]
+name = "Immich pour TOS"
+auth = "lee3gold"
+descript = "Bibliothèque de photos et de vidéos auto-hébergée avec chronologie, albums, recherche et apprentissage automatique. Emballage TOS 7 non officiel d'Immich 3.3.4 ; les photos et métadonnées restent sur votre TNAS."
+release_note = "1. Première version basée sur Immich 3.3.4. Chronologie, albums, import, miniatures, recherche, reconnaissance faciale et OCR."
+important = "DockerEngine est requis. Architecture x86_64 uniquement. L'interface utilise le port 2283. Au premier usage de l'apprentissage automatique, environ 1,7 Go de modèles sont téléchargés depuis hf-mirror.com et modelscope.cn. Les applications Docker ne prennent pas en charge la mise à jour sur place ; désinstallez puis réinstallez. Sans suppression des données, la bibliothèque reste dans /Volume*/DockerAppData/le3gold-immich."
+
+[de-de]
+name = "Immich für TOS"
+auth = "lee3gold"
+descript = "Selbst gehostete Foto- und Videobibliothek mit Zeitleiste, Alben, Suche und maschinellem Lernen. Inoffizielle TOS 7-Paketierung von Immich 3.3.4; Fotos und Metadaten bleiben auf Ihrem TNAS."
+release_note = "1. Erste Version auf Basis von Immich 3.3.4. Zeitleiste, Alben, Upload, Miniaturansichten, Suche, Gesichtserkennung und OCR."
+important = "DockerEngine ist erforderlich. Nur x86_64. Die Weboberfläche nutzt Port 2283. Bei der ersten Nutzung des maschinellen Lernens werden etwa 1,7 GB Modelle von hf-mirror.com und modelscope.cn geladen. Docker-Anwendungen können nicht direkt aktualisiert werden; deinstallieren und neu installieren. Ohne Datenlöschung bleibt die Bibliothek unter /Volume*/DockerAppData/le3gold-immich."
+
+[it-it]
+name = "Immich per TOS"
+auth = "lee3gold"
+descript = "Libreria di foto e video self-hosted con timeline, album, ricerca e machine learning. Pacchetto TOS 7 non ufficiale di Immich 3.3.4; foto e metadati restano sul TNAS."
+release_note = "1. Prima versione basata su Immich 3.3.4. Timeline, album, caricamento, miniature, ricerca, riconoscimento volti e OCR."
+important = "Richiede DockerEngine. Solo x86_64. L'interfaccia web usa la porta 2283. Al primo uso del machine learning vengono scaricati circa 1,7 GB di modelli da hf-mirror.com e modelscope.cn. Le applicazioni Docker non supportano l'aggiornamento sul posto; disinstallare e reinstallare. Se i dati non vengono eliminati, la libreria resta in /Volume*/DockerAppData/le3gold-immich."
+
+[es-es]
+name = "Immich para TOS"
+auth = "lee3gold"
+descript = "Biblioteca de fotos y vídeos autoalojada con cronología, álbumes, búsqueda y aprendizaje automático. Paquete TOS 7 no oficial de Immich 3.3.4; las fotos y los metadatos permanecen en su TNAS."
+release_note = "1. Primera versión basada en Immich 3.3.4. Cronología, álbumes, carga, miniaturas, búsqueda, reconocimiento facial y OCR."
+important = "Requiere DockerEngine. Solo x86_64. La interfaz web usa el puerto 2283. En el primer uso del aprendizaje automático se descargan unos 1,7 GB de modelos desde hf-mirror.com y modelscope.cn. Las aplicaciones Docker no se actualizan en el sitio; desinstale y vuelva a instalar. Si no elimina los datos, la biblioteca permanece en /Volume*/DockerAppData/le3gold-immich."
+
+[hu-hu]
+name = "Immich TOS-hoz"
+auth = "lee3gold"
+descript = "Saját üzemeltetésű fotó- és videótár idővonallal, albumokkal, kereséssel és gépi tanulással. Az Immich 3.3.4 nem hivatalos TOS 7 csomagja; a fotók és metaadatok a TNAS-on maradnak."
+release_note = "1. Első kiadás az Immich 3.3.4 alapján. Idővonal, albumok, feltöltés, bélyegképek, keresés, arcfelismerés és OCR."
+important = "DockerEngine szükséges. Csak x86_64. A webes felület a 2283-as portot használja. A gépi tanulás első használatakor körülbelül 1,7 GB modell töltődik le a hf-mirror.com és a modelscope.cn oldalról. A Docker-alkalmazások nem frissíthetők helyben; távolítsa el, majd telepítse újra. Adatok megőrzése esetén a tár a /Volume*/DockerAppData/le3gold-immich mappában marad."
+
+[ja-jp]
+name = "TOS 用 Immich"
+auth = "lee3gold"
+descript = "タイムライン、アルバム、検索、機械学習を備えたセルフホスト型の写真・動画ライブラリです。Immich 3.3.4 の非公式 TOS 7 パッケージで、写真とメタデータは TNAS 内に保存されます。"
+release_note = "1. Immich 3.3.4 を基にした初回リリース。タイムライン、アルバム、アップロード、サムネイル、検索、顔認識、OCR を含みます。"
+important = "DockerEngine が必要です。x86_64 のみ対応。Web UI はポート 2283 を使用します。機械学習の初回利用時に hf-mirror.com と modelscope.cn から約 1.7 GB のモデルをダウンロードします。Docker アプリは上書きアップグレードに対応していません。アンインストール後に再インストールしてください。データを残す場合、ライブラリは /Volume*/DockerAppData/le3gold-immich に保持されます。"
+
+[ko-kr]
+name = "TOS용 Immich"
+auth = "lee3gold"
+descript = "타임라인, 앨범, 검색, 머신러닝을 제공하는 자체 호스팅 사진 및 동영상 라이브러리입니다. Immich 3.3.4의 비공식 TOS 7 패키지이며 사진과 메타데이터는 TNAS에 보관됩니다."
+release_note = "1. Immich 3.3.4 기반 첫 출시. 타임라인, 앨범, 업로드, 썸네일, 검색, 얼굴 인식, OCR을 포함합니다."
+important = "DockerEngine이 필요합니다. x86_64만 지원합니다. 웹 UI는 2283 포트를 사용합니다. 머신러닝을 처음 사용할 때 hf-mirror.com과 modelscope.cn에서 약 1.7GB의 모델을 다운로드합니다. Docker 앱은 전체 업그레이드를 지원하지 않으므로 제거 후 다시 설치해야 합니다. 데이터를 유지하면 라이브러리는 /Volume*/DockerAppData/le3gold-immich에 보관됩니다."
+
+[pl-pl]
+name = "Immich dla TOS"
+auth = "lee3gold"
+descript = "Samodzielnie hostowana biblioteka zdjęć i filmów z osią czasu, albumami, wyszukiwaniem i uczeniem maszynowym. Nieoficjalny pakiet TOS 7 dla Immich 3.3.4; zdjęcia i metadane pozostają na TNAS."
+release_note = "1. Pierwsze wydanie oparte na Immich 3.3.4. Oś czasu, albumy, przesyłanie, miniatury, wyszukiwanie, rozpoznawanie twarzy i OCR."
+important = "Wymaga DockerEngine. Tylko x86_64. Interfejs WWW używa portu 2283. Przy pierwszym użyciu uczenia maszynowego pobierane jest około 1,7 GB modeli z hf-mirror.com i modelscope.cn. Aplikacji Docker nie można aktualizować w miejscu; odinstaluj i zainstaluj ponownie. Bez usuwania danych biblioteka pozostaje w /Volume*/DockerAppData/le3gold-immich."
+
+[ru-ru]
+name = "Immich для TOS"
+auth = "lee3gold"
+descript = "Самостоятельно размещаемая библиотека фото и видео с хронологией, альбомами, поиском и машинным обучением. Неофициальный пакет TOS 7 для Immich 3.3.4; фотографии и метаданные остаются на TNAS."
+release_note = "1. Первый выпуск на основе Immich 3.3.4. Хронология, альбомы, загрузка, миниатюры, поиск, распознавание лиц и OCR."
+important = "Требуется DockerEngine. Только x86_64. Веб-интерфейс использует порт 2283. При первом использовании машинного обучения загружается около 1,7 ГБ моделей с hf-mirror.com и modelscope.cn. Приложения Docker не поддерживают обновление на месте; удалите и установите заново. Без удаления данных библиотека остаётся в /Volume*/DockerAppData/le3gold-immich."
+
+[tr-tr]
+name = "TOS için Immich"
+auth = "lee3gold"
+descript = "Zaman çizelgesi, albümler, arama ve makine öğrenimi sunan kendi barındırılan fotoğraf ve video kitaplığı. Immich 3.3.4 için resmi olmayan TOS 7 paketi; fotoğraflar ve üst veriler TNAS üzerinde kalır."
+release_note = "1. Immich 3.3.4 tabanlı ilk sürüm. Zaman çizelgesi, albümler, yükleme, küçük resimler, arama, yüz tanıma ve OCR."
+important = "DockerEngine gerekir. Yalnızca x86_64. Web arayüzü 2283 bağlantı noktasını kullanır. Makine öğreniminin ilk kullanımında hf-mirror.com ve modelscope.cn üzerinden yaklaşık 1,7 GB model indirilir. Docker uygulamaları yerinde yükseltilemez; kaldırıp yeniden kurun. Veriler silinmezse kitaplık /Volume*/DockerAppData/le3gold-immich içinde kalır."
+
+[pt-pt]
+name = "Immich para TOS"
+auth = "lee3gold"
+descript = "Biblioteca de fotografias e vídeos autoalojada com cronologia, álbuns, pesquisa e aprendizagem automática. Pacote TOS 7 não oficial do Immich 3.3.4; as fotografias e os metadados permanecem no TNAS."
+release_note = "1. Primeira versão baseada no Immich 3.3.4. Cronologia, álbuns, carregamento, miniaturas, pesquisa, reconhecimento facial e OCR."
+important = "Requer DockerEngine. Apenas x86_64. A interface web utiliza a porta 2283. Na primeira utilização de aprendizagem automática são transferidos cerca de 1,7 GB de modelos de hf-mirror.com e modelscope.cn. As aplicações Docker não suportam atualização no local; desinstale e instale novamente. Sem eliminar os dados, a biblioteca permanece em /Volume*/DockerAppData/le3gold-immich."
