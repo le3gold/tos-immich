@@ -113,6 +113,33 @@ Valkey 一样以 UID/GID `1000:1000` 运行，不使用 privileged，不使用 h
 PostgreSQL 通过 `POSTGRES_PASSWORD_FILE` 读取。升级、备份或迁移时请把
 `db-password` 和 `postgres/` 一起保留。
 
+## 导入 NAS 上已有的照片（外部库，不复制文件）
+
+Immich 的**外部库**可以原地索引已有文件夹，照片不会被移动或复制。TOS 的
+Docker 应用规范不允许把共享文件夹写进发布包（平台会把绝对路径重写到
+`DockerAppData`），所以需要在安装后手工给 `immich-server` 增加一个只读挂载。
+
+以共享文件夹 `/Volume1/Photos` 为例：
+
+```bash
+cd /Volume1/@apps/DockerEngine/application/le3gold-immich
+sudo sed -e 's|\./|/Volume1/DockerAppData/le3gold-immich/|g' \
+  -e 's|DockerAppData/le3gold-immich/library:/data|DockerAppData/le3gold-immich/library:/data\n      - /Volume1/Photos:/mnt/photos:ro|' \
+  docker-compose.yml > /tmp/immich-resolved.yml
+sudo docker compose -p le3gold-immich -f /tmp/immich-resolved.yml up -d immich-server
+```
+
+然后在 Immich 管理后台进入 **外部库 → 创建外部库**，路径填 `/mnt/photos`，
+保存后执行扫描。缩略图和索引写入 Immich 自己的数据库与 `library/`，原文件夹
+保持只读。
+
+注意事项：
+
+- 容器以 UID 1000 运行，源文件夹必须对 UID 1000 可读。
+- 路径必须加 `:ro`，不要让 Immich 写回原文件夹。
+- 不要指向 `DockerAppData/le3gold-immich/library`，也不要与上传目录重叠。
+- 重装应用会重建容器，需要重新加这个挂载；照片和数据库不受影响。
+
 ## 卸载和升级
 
 TOS 的 Docker 应用**不支持应用中心内的原地升级**。需要更换版本时：
