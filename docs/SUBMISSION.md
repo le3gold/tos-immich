@@ -16,7 +16,7 @@
 | 开发者 / 发布人 | `lee3gold` |
 | 源码仓库 | <https://github.com/le3gold/tos-immich> |
 | 发布包 | <https://github.com/le3gold/tos-immich/releases/download/v3.3.4/le3gold-immich.tar.gz> |
-| SHA-256 | `ddc38ef82b48ccd316f018ab62445970987fb553c53eba5a1272f1f7c07b85af` |
+| SHA-256 | `d83e5fca3049b9271fd2b85ed9a778747058297dffba04d211423a8b88500166` |
 | 隐私政策 | <https://github.com/le3gold/tos-immich/blob/main/PRIVACY.md> |
 | 支持地址 | <https://github.com/le3gold/tos-immich/issues> |
 
